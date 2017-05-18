@@ -59,7 +59,7 @@ function _wait_for_mongo() {
 # NOTE: This won't work with standalone Docker container.
 function endpoints() {
   service_name=${MONGODB_SERVICE_NAME:-mongodb}
-  dig ${service_name} A +search +short 2>/dev/null
+  dig $(hostname -f | grep -o mongodb-[1-9]) A +search +short 2>/dev/null
 }
 
 # replset_addr return the address of the current replSet
