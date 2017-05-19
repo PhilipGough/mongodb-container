@@ -54,6 +54,18 @@ function _wait_for_mongo() {
   return 1
 }
 
+function wait_for_service() {
+  for x in {1..100}; do                                                                                                                                                                                                                                                                                                    
+    test=$(dig $1 A +short +search)                                                                                                                                                                                                                                                                                 
+    if [ "$test" != "" ]; then                                                                                                                                                                                                                                                                                             
+      break                                                                                                                                                                                                                                                                                                              
+    fi                                                                                                                                                                                                                                                                                                                     
+    sleep 1; 
+    echo "=> Waiting for $1 service"
+  done
+  return 0 
+}
+
 # endpoints returns list of IP addresses with other instances of MongoDB
 # To get list of endpoints, you need to have headless Service named 'mongodb'.
 # NOTE: This won't work with standalone Docker container.

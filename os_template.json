@@ -1539,12 +1539,12 @@
     },
     {
       "name": "MONGODB_IMAGE",
-      "value": "docker.io/philipgough/mongo",
+      "value": "docker.io/lzuccarelli/mongo",
       "description": "The name of the mongodb image"
     },
     {
       "name": "MONGODB_IMAGE_VERSION",
-      "value": "3",
+      "value": "15",
       "description": "The version for the MONGODB_IMAGE"
     },
     {
